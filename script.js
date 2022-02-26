@@ -1,12 +1,11 @@
 //this array will be universally declared
-const choices = ["rock", "paper", "scissors"];
+const choices = ['rock', 'paper', 'scissors'];
 // created a variable computerSelection to store for later
 const computerSelection = computerPlay();
-// created a variable playerSelection to store for later
-const playerSelection = humanPlay ();
-// both computer and player scores will start at zero. 
+// computer, player and final scores will start at zero. 
 let computerScore = 0;
 let playerScore = 0;
+let finalScore = 0;
 
 //created this function to allow the computer to randomly generated one of the choices in the array
 function computerPlay(arr) {
@@ -18,8 +17,6 @@ function computerPlay(arr) {
 	return item;
 }
 
-
-
 //accounts for the actual gameplay using boolean values and incrementation of score
 function playRound(playerSelection, computerSelection) {
 
@@ -28,7 +25,7 @@ function playRound(playerSelection, computerSelection) {
         return computerSelection + ' beats ' + playerSelection + '. Try Again!';
 
     } else if (playerSelection == 'rock' && computerSelection == 'scissors') {
-        playerScoreScore += 1;
+        playerScore += 1;
         return playerSelection + ' beats ' + computerSelection + '. Great job!';
 
     } else if (playerSelection == 'rock' && computerSelection == 'rock') {
@@ -42,18 +39,18 @@ function playRound(playerSelection, computerSelection) {
         computerScore += 1;
        return computerSelection + ' beats ' + playerSelection + '. Try Again!';
 
-    } else if (playerSelection == 'paper' + computerSelection == 'paper') {
+    } else if (playerSelection == 'paper' && computerSelection == 'paper') {
         return 'Draw!';	
     
-    } else if (playerSelection == 'scissors' + computerSelection == 'rock') {
+    } else if (playerSelection == 'scissors' && computerSelection == 'rock') {
         computerScore +=1;
         return computerSelection + ' beats ' + playerSelection + '. Try Again!';
     
-    } else if (playerSelection == 'scissors' + computerSelection == 'paper') {
+    } else if (playerSelection == 'scissors' && computerSelection == 'paper') {
         playerScore += 1;
         return playerSelection + ' beats ' + computerSelection + '. Great job!';
     
-    } else if (playerSelection == 'scissors' + computerSelection == 'scissors') {
+    } else if (playerSelection == 'scissors' && computerSelection == 'scissors') {
         return 'Draw!';	
     
     } else {
@@ -61,13 +58,37 @@ function playRound(playerSelection, computerSelection) {
     }    
 }   
 
+
+//this sets the iteration of 5 rounds for the game
 function game() {
   for (let i = 0; i < 5; i++) {  
+    playRound();    
     let playerSelection = prompt('Rock, Paper, or Scissors?');
     let computerSelection = computerPlay();
-    playerSelection = playerSelection.toUpperCase();
-    computerSelection = computerSelection.toUpperCase();
+
+    if (playerSelection != null) {
+
+    playerSelection.toUpperCase();
+    }
+    if (computerSelection != null) {
+        computerSelection.toUpperCase();
+    }
+
     console.log(playRound(playerSelection, computerSelection)); 
-  }
- console.log(winner);    
+    } 
 }
+
+// this function is to keep track of the final score
+function calcScore() {
+ // a winner will have a score greater than or equal to 3   
+  if (humanScore >= 3) {
+    let finalScore = humanScore;  
+    console.log ('Player Wins!');
+  }
+  else {
+    let finalScore = computerScore;  
+    console.log('Computer wins!');
+  }
+}
+
+ console.log(calcScore);    
