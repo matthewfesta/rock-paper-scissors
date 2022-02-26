@@ -2,6 +2,8 @@
 const choices = ["rock", "paper", "scissors"];
 // created a variable computerSelection to store for later
 const computerSelection = computerPlay();
+// created a variable playerSelection to store for later
+const playerSelection = humanPlay ();
 // both computer and player scores will start at zero. 
 let computerScore = 0;
 let playerScore = 0;
@@ -15,6 +17,9 @@ function computerPlay(arr) {
     // we want to make sure that we return either rock, paper or scissors each play. 
 	return item;
 }
+
+
+
 //accounts for the actual gameplay using boolean values and incrementation of score
 function playRound(playerSelection, computerSelection) {
 
@@ -55,3 +60,14 @@ function playRound(playerSelection, computerSelection) {
         return 'Invalid Round. Try again. '
     }    
 }   
+
+function game() {
+  for (let i = 0; i < 5; i++) {  
+    let playerSelection = prompt('Rock, Paper, or Scissors?');
+    let computerSelection = computerPlay();
+    playerSelection = playerSelection.toUpperCase();
+    computerSelection = computerSelection.toUpperCase();
+    console.log(playRound(playerSelection, computerSelection)); 
+  }
+ console.log(winner);    
+}
