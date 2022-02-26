@@ -58,6 +58,18 @@ function playRound(playerSelection, computerSelection) {
     }    
 }   
 
+// this function is to keep track of the final score
+function calcScore() {
+ // a winner will have a score greater than or equal to 3   
+  if (playerScore >= 3) {
+    let finalScore = playerScore;  
+    console.log ('Player Wins!');
+  }
+  else {
+    let finalScore = computerScore;  
+    console.log('Computer wins!');
+  }
+}
 
 //this sets the iteration of 5 rounds for the game
 function game() {
@@ -76,19 +88,9 @@ function game() {
 
     console.log(playRound(playerSelection, computerSelection)); 
     } 
+    calcScore();
 }
 
-// this function is to keep track of the final score
-function calcScore() {
- // a winner will have a score greater than or equal to 3   
-  if (humanScore >= 3) {
-    let finalScore = humanScore;  
-    console.log ('Player Wins!');
-  }
-  else {
-    let finalScore = computerScore;  
-    console.log('Computer wins!');
-  }
-}
+
 
  console.log(calcScore);    
