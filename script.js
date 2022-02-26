@@ -22,33 +22,33 @@ function playRound(playerSelection, computerSelection) {
 
     if (playerSelection == 'rock' && computerSelection == 'paper') {
         computerScore += 1;
-        return computerSelection + ' beats ' + playerSelection + '. Try Again!';
+        return 'computer choice: ' + computerSelection + ' beats ' + 'player choice: ' + playerSelection + '. Try Again!';
 
     } else if (playerSelection == 'rock' && computerSelection == 'scissors') {
         playerScore += 1;
-        return playerSelection + ' beats ' + computerSelection + '. Great job!';
+        return 'player choice: ' + playerSelection + ' beats ' + 'computer choice: ' + computerSelection + '. Great job!';
 
     } else if (playerSelection == 'rock' && computerSelection == 'rock') {
         return 'Draw!';	
 
     } else if (playerSelection == 'paper' && computerSelection == 'rock') {
         playerScore += 1;
-        return playerSelection + ' beats ' + computerSelection + '. Great job!';
+        return 'player choice: ' + playerSelection + ' beats ' + 'computer choice: ' + computerSelection + '. Great job!';
 
     } else if (playerSelection == 'paper' && computerSelection == 'scissors') {
         computerScore += 1;
-       return computerSelection + ' beats ' + playerSelection + '. Try Again!';
+       return 'computer choice: ' + computerSelection + ' beats ' + 'player choice: ' + playerSelection + '. Try Again!';
 
     } else if (playerSelection == 'paper' && computerSelection == 'paper') {
         return 'Draw!';	
     
     } else if (playerSelection == 'scissors' && computerSelection == 'rock') {
         computerScore +=1;
-        return computerSelection + ' beats ' + playerSelection + '. Try Again!';
+        return 'computer choice: ' + computerSelection + ' beats ' + 'player choice: ' + playerSelection + '. Try Again!';
     
     } else if (playerSelection == 'scissors' && computerSelection == 'paper') {
         playerScore += 1;
-        return playerSelection + ' beats ' + computerSelection + '. Great job!';
+        return 'player choice: ' + playerSelection + ' beats ' + 'computer choice: ' + computerSelection + '. Great job!';
     
     } else if (playerSelection == 'scissors' && computerSelection == 'scissors') {
         return 'Draw!';	
@@ -60,14 +60,17 @@ function playRound(playerSelection, computerSelection) {
 
 // this function is to keep track of the final score
 function calcScore() {
- // a winner will have a score greater than or equal to 3   
-  if (playerScore >= 3) {
+ // a winner will have a score greater than the other. Tie is possible as draws are not scored.  
+  if (playerScore > computerScore) {
     let finalScore = playerScore;  
-    console.log ('Player Wins!');
+    console.log (`Player Score: ${playerScore}. Player wins! `);
+  }
+   else if (computerScore > playerScore) {
+    let finalScore = computerScore;  
+    console.log(`Computer Score: ${computerScore}. Computer wins!`);
   }
   else {
-    let finalScore = computerScore;  
-    console.log('Computer wins!');
+      console.log('Tie!')
   }
 }
 
@@ -79,8 +82,7 @@ function game() {
     let computerSelection = computerPlay();
 
     if (playerSelection != null) {
-
-    playerSelection.toUpperCase();
+        playerSelection.toUpperCase();
     }
     if (computerSelection != null) {
         computerSelection.toUpperCase();
@@ -88,6 +90,7 @@ function game() {
 
     console.log(playRound(playerSelection, computerSelection)); 
     } 
+
     calcScore();
 }
 
