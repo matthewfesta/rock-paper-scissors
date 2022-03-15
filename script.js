@@ -75,7 +75,7 @@ function calcScore() {
 }
 
 //this sets the iteration of 5 rounds for the game
-function game() {
+/*function game() {
   for (let i = 0; i < 5; i++) {  
     playRound();    
     let playerSelection = prompt('Rock, Paper, or Scissors?');
@@ -92,7 +92,7 @@ function game() {
     } 
 
     calcScore();
-}
+}*/
 
 
 
