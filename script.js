@@ -96,4 +96,19 @@ function calcScore() {
 
 
 
+const rockBtn = document.querySelector('#rock_btn');
+rockBtn.addEventListener('click', playRound, true) => {
+  
+};
+
+const paperBtn = document.querySelector('#paper_btn');
+paperBtn.addEventListener('click', playRound, true) => {
+  
+};
+
+const scissorsBtn = document.querySelector('#scissors_btn');
+scissorsBtn.addEventListener('click',playRound, true) => {
+   
+};
+
  console.log(calcScore);    
