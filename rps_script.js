@@ -19,15 +19,12 @@ const click = (button) => {
   switch (button) {
     case 'Rock':
       handleRock(button);
-      reRender();
       break;
     case 'Paper':
       handlePaper(button);
-      reRender();
       break;
     case 'Scissors':
       handleScissors(button);
-      reRender();
       break;
     default:
       break;
@@ -110,15 +107,20 @@ const isGameOver = () => {
 
 const reRender = () => {
   if (isGameOver()) {
-    screen.innerText = 'Game Over!';
+    if (playerScore > computerScore) {
+      screen.innerText = "Game Over! Player wins!"
+    } else {
+      screen.innerText = "Game Over! Computer wins!"
+    }
     playerDisplay.innerText = `Player: ${finalPlayerScore}`;
     computerDisplay.innerText = `Computer: ${finalComputerScore}`;
     computerScore = 0;
     playerScore = 0;
-  }
+  } else {
   screen.innerText = `Player: ${playerChoice} vs Computer: ${computerChoice}`;
   playerDisplay.innerText = `Player: ${playerScore}`;
   computerDisplay.innerText = `Computer: ${computerScore}`;
+  }
 }
 
 
