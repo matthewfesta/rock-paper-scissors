@@ -3,64 +3,103 @@
  * 
  */
 
-//this array will be universally declared
-const choices = ['rock', 'paper', 'scissors'];
-// created a variable computerSelection to store for later
-const computerSelection = computerPlay();
-// computer, player and final scores will start at zero. 
+// Global variables:
 let computerScore = 0;
 let playerScore = 0;
-let finalScore = 0;
+let finalPlayerScore = 0;
+let finalComputerScore = 0;
+let playerChoice;
+let computerChoice;
+const screen = document.querySelector('.result-screen');
+const playerDisplay = document.querySelector('.result-player');
+const computerDisplay = document.querySelector('.result-computer');
 
+// Fuction to check for different buttons
+const click = (button) => {
+  switch (button) {
+    case 'Rock':
+      handleRock(button);
+      break;
+    case 'Paper':
+      handlePaper(button);
+      break;
+    case 'Scissors':
+      handleScissors(button);
+      break;
+    default:
+      break;
+  }
+  reRender();
+}
 
+const handleRock = (button) => {
+  playerChoice = button;
+  switch (computerChoice) {
+    case 'Rock':
+      console.log('Tie!');
+      break;
+    case 'Paper':
+      console.log('Computer wins!');
+      computerScore++;
+      break;
+    case 'Scissors':
+      console.log('Player wins!');
+      playerScore++;
+  }
+}
 
-function playRound() {
-    // Get input from the user:
-    playerSelection = prompt("Rock, Paper, or Scissors?").toLowerCase();
-    // Get input from the computer:
-    computerSelection = Math.random(choices.length)
-    // Compare the two inputs:
+const handlePaper = (button) => {
+  playerChoice = button;
+  switch (computerChoice) {
+    case 'Rock':
+      console.log('Player wins!');
+      playerScore++;
+      break;
+    case 'Paper':
+      console.log('Tie!');
+      break;
+    case 'Scissors':
+      console.log('Computer wins!');
+      computerScore++;
+  }
+}
+
+const handleScissors = (button) => {
+  playerChoice = button;
+  switch (computerChoice) {
+    case 'Rock':
+      console.log('Computer wins!');
+      computerScore++;
+      break;
+    case 'Paper':
+      console.log('Player wins!');
+      playerScore++;
+      break;
+    case 'Scissors':
+      console.log('Tie!');
+  }
+}
+
+// // This function plays a single round of the game
     
 
-
-}
 // this function is to keep track of the final score
-function calcScore(playerScore, computerScore){) {
- // a winner will have a score greater than the other. Tie is possible as draws are not scored.  
-  if (playerScore > computerScore) {
-    console.log (`Player Score: ${playerScore}. Player wins! `);
-  }
-   else if (computerScore > playerScore) {
-    console.log(`Computer Score: ${computerScore}. Computer wins!`);
-  }
-  else {
-      console.log('Tie!')
-  }
-}
 
-//this sets the iteration of 5 rounds for the game
-/*function game() {
-  for (let i = 0; i < 5; i++) {  
-    playRound();    
-    let playerSelection = prompt('Rock, Paper, or Scissors?');
-    let computerSelection = computerPlay();
 
-    if (playerSelection != null) {
-        playerSelection.toUpperCase();
-    }
-    if (computerSelection != null) {
-        computerSelection.toUpperCase();
-    }
-
-    console.log(playRound(playerSelection, computerSelection)); 
-    } 
-
-    calcScore();
-}*/
+// This function is to play the game
 
 
 
 
 const init = () => {
-  .querySelector
+  document
+    .querySelector('.buttons')
+    .addEventListener('click', function(event) {
+
+      click(event.target.innerText);
+    });
+};
+
 }
+
+init();
