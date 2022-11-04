@@ -1,0 +1,67 @@
+* {
+    box-sizing: border-box;
+    background-color: rgb(1, 1, 76);
+}
+
+body {
+    padding: 0;
+    margin: 0;
+
+}
+
+h1 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 3rem;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    padding: 1rem;
+}
+
+.result-screen {
+    width: 100%;
+    color: white;
+    text-align: center;
+    font-size: 2rem;
+    padding: 1rem;
+
+}
+
+.choices-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 1rem;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 1rem;
+}
+
+button {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 1px solid rgb(255, 255, 255);
+    background-color: rgb(1, 1, 76);
+    color: rgb(255, 255, 255);
+    font-size: 2rem;
+    margin: 1rem;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgb(255, 255, 255);
+    color: rgb(1, 1, 76);
+}
+
+.button:active {
+    background-color: rgb(87, 87, 253);
+    color: rgb(255, 255, 255);
+}
