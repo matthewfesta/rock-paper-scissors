@@ -18,6 +18,7 @@ h1 {
 }
 
 .result-screen {
+    font-family: 'Roboto', sans-serif;
     width: 100%;
     color: white;
     text-align: center;
@@ -26,12 +27,17 @@ h1 {
 
 }
 
-.choices-display {
+.score-display {
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 2rem;
     flex-wrap: wrap;
     padding: 1rem;
+    
 }
 
 .buttons {

@@ -11,20 +11,23 @@ let finalComputerScore = 0;
 let playerChoice;
 let computerChoice;
 const screen = document.querySelector('.result-screen');
-const playerDisplay = document.querySelector('.result-player');
-const computerDisplay = document.querySelector('.result-computer');
+const playerDisplay = document.querySelector('.score-player');
+const computerDisplay = document.querySelector('.score-computer');
 
-// Fuction to check for different buttons
+// Function to check for different buttons
 const click = (button) => {
   switch (button) {
     case 'Rock':
       handleRock(button);
+      reRender();
       break;
     case 'Paper':
       handlePaper(button);
+      reRender();
       break;
     case 'Scissors':
       handleScissors(button);
+      reRender();
       break;
     default:
       break;
@@ -32,24 +35,44 @@ const click = (button) => {
   reRender();
 }
 
+// Function to generate random computer choice
+const computerPlay = () => {
+  // Computer will randomly choose 1,2, or 3:
+  let computerChoiceNumber = Math.floor(Math.random() * 3) + 1;
+  switch (computerChoiceNumber) {
+    case 1:
+      computerChoice = 'Rock';
+      break;
+    case 2:
+      computerChoice = 'Paper';
+      break;
+    case 3:
+      computerChoice = 'Scissors';
+      break;
+    default:
+      break;
+  }
+  return computerChoice;
+}
+
 const handleRock = (button) => {
+  computerChoice = computerPlay();
   playerChoice = button;
   switch (computerChoice) {
     case 'Rock':
-      console.log('Tie!');
       break;
     case 'Paper':
-      console.log('Computer wins!');
       computerScore++;
       break;
     case 'Scissors':
-      console.log('Player wins!');
+      reRender();
       playerScore++;
   }
 }
 
 const handlePaper = (button) => {
   playerChoice = button;
+  computerChoice = computerPlay();
   switch (computerChoice) {
     case 'Rock':
       console.log('Player wins!');
@@ -66,6 +89,7 @@ const handlePaper = (button) => {
 
 const handleScissors = (button) => {
   playerChoice = button;
+  computerChoice = computerPlay()
   switch (computerChoice) {
     case 'Rock':
       console.log('Computer wins!');
@@ -80,18 +104,31 @@ const handleScissors = (button) => {
   }
 }
 
-// // This function plays a single round of the game
-    
+const isGameOver = () => {
+  if (playerScore === 5 || computerScore === 5) return true;
+}
 
-// this function is to keep track of the final score
+const reRender = () => {
+  if (isGameOver()) {
+    screen.innerText = 'Game Over!';
+    playerDisplay.innerText = `Player: ${finalPlayerScore}`;
+    computerDisplay.innerText = `Computer: ${finalComputerScore}`;
+    computerScore = 0;
+    playerScore = 0;
+  }
+  screen.innerText = `Player: ${playerChoice} vs Computer: ${computerChoice}`;
+  playerDisplay.innerText = `Player: ${playerScore}`;
+  computerDisplay.innerText = `Computer: ${computerScore}`;
+}
 
 
 // This function is to play the game
 
 
 
-
+// Initialize the game by clicking
 const init = () => {
+  
   document
     .querySelector('.buttons')
     .addEventListener('click', function(event) {
@@ -100,6 +137,5 @@ const init = () => {
     });
 };
 
-}
 
 init();
